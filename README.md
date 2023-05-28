@@ -2,13 +2,15 @@
 
 https://start.spring.io/
 
----
+{
+Project: Maven
+Language: Java
+Spring Boot: 2.7.11
+}
 
 ###Project: Maven
 ###Language: Java
 ###Spring Boot: 2.7.11
-
----
 
 ## Project Metadata
 
