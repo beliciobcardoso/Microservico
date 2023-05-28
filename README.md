@@ -2,11 +2,11 @@
 
 https://start.spring.io/
 
-{
+## Spring Initializr
+
 Project: Maven,
 Language: Java,
 Spring Boot: 2.7.11
-}
 
 ## Project Metadata
 
