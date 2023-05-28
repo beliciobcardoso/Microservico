@@ -4,20 +4,20 @@ https://start.spring.io/
 
 ---
 
-Project: Maven,
-Language: Java,
-Spring Boot: 2.7.11
+#####Project: Maven
+#####Language: Java
+#####Spring Boot: 2.7.11
 
 ---
 
 ## Project Metadata
 
 <ul>
-<li>Group: com.empresa_xpto "Insira o nome do grupo ou da empresa ao qual o projeto pertence."</li>
-<li>Artifact: nome_do_seu_micro_servico "Digite o nome do artefato do seu projeto. Este será o nome do arquivo JAR gerado."</li>
-<li>Name: nome_do_seu_projeto "Insira o nome do seu projeto que pode ser o mesmo do artefato"</li>
-<li>Description: Projeto para micro serviço client "Digite uma descrição breve do seu projeto."</li>
-<li>Package name: com.empresa_xpto.nome_do_seu_micro_servico " Insira o nome do pacote principal do seu projeto. Geralmente, segue o padrão do nome do grupo invertido, seguido pelo nome do artefato. Por exemplo"</li>
+    <li>Group: com.empresa_xpto "Insira o nome do grupo ou da empresa ao qual o projeto pertence."</li>
+    <li>Artifact: nome_do_seu_micro_servico "Digite o nome do artefato do seu projeto. Este será o nome do arquivo JAR gerado."</li>
+    <li>Name: nome_do_seu_projeto "Insira o nome do seu projeto que pode ser o mesmo do artefato"</li>
+    <li>Description: Projeto para micro serviço client "Digite uma descrição breve do seu projeto."</li>
+    <li>Package name: com.empresa_xpto.nome_do_seu_micro_servico " Insira o nome do pacote principal do seu projeto. Geralmente, segue o padrão do nome do grupo invertido, seguido pelo nome do artefato. Por exemplo"</li>
 </ul>
 
 Packaging: jar
