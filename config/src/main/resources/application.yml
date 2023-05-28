@@ -1,0 +1,11 @@
+#config-server
+server:
+  port: ${PORT:8888}
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/beliciobcardoso/configs
