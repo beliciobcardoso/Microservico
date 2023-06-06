@@ -29,8 +29,6 @@ Versão Java: 11
                 <ol>
                     <li>Eureka Server</li>
                     <li>Spring Web</li>
-                    <li>Lombok</li>
-                    <li>Spring Boot DevTools</li>
                 </ol>
         </ol>
     <li>Configurção para projeto de micro serviço Config Server</li>
@@ -39,8 +37,8 @@ Versão Java: 11
                 <ol>
                     <li>Config Server</li>
                     <li>Spring Web</li>
-                    <li>Lombok</li>
-                    <li>Spring Boot DevTools</li>
+                    <li>Eureka Discovery Client</li>
+                    <li>Spring Boot Actuator</li>
                 </ol>
         </ol>
     <li>Configurção para projeto de micro serviço API Gateway Server</li>
@@ -74,12 +72,59 @@ Versão Java: 11
         </ol>
 </ol>
 
-http://localhost:8888/client-service/profile
+## Criando um conta OAuth2 no google
 
-http://localhost:9999/client-service/profile
+> Acessar o link: https://console.cloud.google.com/
 
-http://localhost:9999/actuator
+> Clique em "Selecionar um projeto" e depois em "Novo projeto"
 
-http://localhost:8888/actuator/health
+> Insira o nome do projeto e clique em "Criar"
 
-http://localhost:8888/actuator/info
+> Acesse o menu "APIs e serviços" e no final da pagina clique em "Service Usage API"
+
+> Clique no botão "Cria credenciais"
+
+> Selecioner "Dados do Usuario" e em proximo. --Dados de um usuário do Google, como o endereço de e-mail ou a idade. É obrigatório ter o consentimento do usuário. Isso criará um cliente OAuth.
+
+> Preencha as informações do seu projeto e clique em "Salvar e continuar". -- Nome do APP (Qualque coisa), E-mail do desenvolvedor.
+
+> Criar um escopo, click em "Adicionar ou remover escopos" na janela que ira abrir encolha a opção "openid" e clique em "Atualizar" e depois em "Salvar e continuar".
+
+> Em Id do cliente OAuth escolha a opção "Aplicativo da Web" e em "URIs de redirecionamento autorizados" insira a URL do seu micro serviço API Gateway Server + "/login/oauth2/code/google" exemplo:http://localhost:8080/login/oauth2/code/google para o teste local e clique em "Criar".
+
+> Em seguida na 5º parte do processor, ira lhe solicitar para fazer o download das suas crendenciais. Click em "Download" e salve o arquivo em um local seguro. sera baixado um arquivo json com as informações do seu projeto.
+
+## Exemplo:
+
+```json
+{
+  "web": {
+    "client_id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com",
+    "project_id": "oauth-00000000000000000000000000000000000",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_secret": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "redirect_uris": ["http://localhost:8080/login/oauth2/code/google"]
+  }
+}
+```
+
+> E não esqueça de clicar em "Concluir" para finalizar.
+
+> Copie o ID do cliente e a Chave secreta e cole no arquivo application.yml do seu micro serviço API Gateway Server.
+
+## Exemplo:
+
+```yml
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com
+            client-secret: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            scope: openid
+            redirect-uri: 'http://localhost:8080/login/oauth2/code/google'
+```
