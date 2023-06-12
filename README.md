@@ -120,7 +120,15 @@ Versão Java: 11
 spring:
   security:
     oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://accounts.google.com
+          jwk-set-uri: https://www.googleapis.com/oauth2/v3/certs
       client:
+        provider:
+          google:
+            token-uri: https://oauth2.googleapis.com/token
+            issuer-uri: https://accounts.google.com
         registration:
           google:
             client-id: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com
@@ -128,3 +136,26 @@ spring:
             scope: openid
             redirect-uri: 'http://localhost:8080/login/oauth2/code/google'
 ```
+
+## Dependencia para OAuth2 Client
+
+> OAuth2 Client
+
+'''xml
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-oauth2-client</artifactId>
+</dependency>
+'''
+
+## Circuit Breaker
+
+> Dependencia para Circuit Breaker
+> ´´´xml
+
+    	<dependency>
+    		<groupId>org.springframework.cloud</groupId>
+    		<artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
+    	</dependency>
+
+´´´
