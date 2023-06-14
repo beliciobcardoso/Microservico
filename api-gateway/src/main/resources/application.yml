@@ -3,3 +3,16 @@ spring:
     import: optional:configserver:http://localhost:8888/
   application:
     name: api-server-gateway
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://accounts.google.com
+          jwk-set-uri: https://www.googleapis.com/oauth2/v3/certs
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
+            scope: openid
+            redirect-uri: 'http://localhost:8080/login/oauth2/code/google'

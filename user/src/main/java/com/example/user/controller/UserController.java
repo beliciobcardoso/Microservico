@@ -39,13 +39,12 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/user/detail/{id}")
-    public Map<String, Object> detail(@PathVariable("id") Long idUser,
-                                      @RequestHeader("user-request-header") String header) {
+    public Map<String, Object> detail(@PathVariable("id") Long idUser) {
         String message = "Hello from user-service";
 
         Map<String, Object> response = new HashMap<>();
         response.put("id_user", idUser);
-        response.put("custom_header_value", header);
+//        response.put("custom_header_value", header);
         response.put("message", message);
 
 
