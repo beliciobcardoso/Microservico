@@ -56,6 +56,21 @@ Versão Java: 11
                     <li>Spring Boot DevTools</li>
                 </ol>
         </ol>
+    <li>Configurção para projeto de micro serviço Sleuth</li>
+        <ol>
+            <li>Dependencies</li>
+                <ol>
+                    <li>Spring Reactive Web</li>
+                    <li>Config Client</li>
+                    <li>Cloud LoadBalancer</li>
+                    <li>Eureka Discovery Client</li>
+                    <li>Gateway</li>
+                    <li>Spring Boot Actuator</li>
+                    <li>OpenFeign</li>
+                    <li>Lombok</li>
+                    <li>Spring Boot DevTools</li>
+                </ol>
+        </ol>
     <li>Configurção para projeto de micro serviço clients</li>
         <ol>
             <li>Dependencies</li>
@@ -151,11 +166,41 @@ spring:
 ## Circuit Breaker
 
 > Dependencia para Circuit Breaker
-> ´´´xml
+> '''xml
 
     	<dependency>
     		<groupId>org.springframework.cloud</groupId>
     		<artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
     	</dependency>
 
-´´´
+'''
+
+## Dependencia para Observabilidade
+
+'''xml
+<dependency>
+<groupId>org.springframework.cloud</groupId>
+<artifactId>spring-cloud-starter-sleuth</artifactId>
+</dependency>
+<dependency>
+<groupId>org.springframework.cloud</groupId>
+<artifactId>spring-cloud-sleuth-zipkin</artifactId>
+</dependency>
+'''
+
+'''shell
+docker run -d -p 9411:9411 openzipkin/zipkin
+'''
+
+'''java
+@Bean
+public RestTemplate getRestTemplate(RestTemplateBuilder builder) {
+return new RestTemplateBuilder().build();
+}
+
+    @Bean
+    public RestTemplateBuilder getRestTemplate() {
+    	return new RestTemplateBuilder();
+    }
+
+'''
