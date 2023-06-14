@@ -164,14 +164,11 @@ spring:
 ## Dependencia para Circuit Breaker
 
 > Resilience4J
-> '''xml
 
     	<dependency>
     		<groupId>org.springframework.cloud</groupId>
     		<artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
     	</dependency>
-
-'''
 
 ## Dependencia para OBSERVABILITY
 
