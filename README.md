@@ -156,16 +156,14 @@ spring:
 
 > OAuth2 Client
 
-'''xml
-<dependency>
-<groupId>org.springframework.boot</groupId>
-<artifactId>spring-boot-starter-oauth2-client</artifactId>
-</dependency>
-'''
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-oauth2-client</artifactId>
+    </dependency>
 
-## Circuit Breaker
+## Dependencia para Circuit Breaker
 
-> Dependencia para Circuit Breaker
+> Resilience4J
 > '''xml
 
     	<dependency>
@@ -175,32 +173,31 @@ spring:
 
 '''
 
-## Dependencia para Observabilidade
+## Dependencia para OBSERVABILITY
 
-'''xml
-<dependency>
-<groupId>org.springframework.cloud</groupId>
-<artifactId>spring-cloud-starter-sleuth</artifactId>
-</dependency>
-<dependency>
-<groupId>org.springframework.cloud</groupId>
-<artifactId>spring-cloud-sleuth-zipkin</artifactId>
-</dependency>
-'''
+> Distributed Tracing with Spring Cloud Sleuth and Spring Cloud Zipkin
 
-'''shell
-docker run -d -p 9411:9411 openzipkin/zipkin
-'''
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-sleuth</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-sleuth-zipkin</artifactId>
+    </dependency>
 
-'''java
-@Bean
-public RestTemplate getRestTemplate(RestTemplateBuilder builder) {
-return new RestTemplateBuilder().build();
-}
+> Zipkin Server
+
+    docker run -d -p 9411:9411 openzipkin/zipkin
+
+> Configuração do Sleuth
+
+    @Bean
+    public RestTemplate getRestTemplate(RestTemplateBuilder builder) {
+    return new RestTemplateBuilder().build();
+    }
 
     @Bean
     public RestTemplateBuilder getRestTemplate() {
     	return new RestTemplateBuilder();
     }
-
-'''
