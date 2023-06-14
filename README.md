@@ -29,6 +29,8 @@ Versão Java: 11
                 <ol>
                     <li>Eureka Server</li>
                     <li>Spring Web</li>
+                    <li>Distributed Tracing</li>
+                    <li>Zipkin</li>
                 </ol>
         </ol>
     <li>Configurção para projeto de micro serviço Config Server</li>
@@ -39,6 +41,8 @@ Versão Java: 11
                     <li>Spring Web</li>
                     <li>Eureka Discovery Client</li>
                     <li>Spring Boot Actuator</li>
+                    <li>Distributed Tracing</li>
+                    <li>Zipkin</li>
                 </ol>
         </ol>
     <li>Configurção para projeto de micro serviço API Gateway Server</li>
@@ -54,21 +58,9 @@ Versão Java: 11
                     <li>OpenFeign</li>
                     <li>Lombok</li>
                     <li>Spring Boot DevTools</li>
-                </ol>
-        </ol>
-    <li>Configurção para projeto de micro serviço Sleuth</li>
-        <ol>
-            <li>Dependencies</li>
-                <ol>
-                    <li>Spring Reactive Web</li>
-                    <li>Config Client</li>
-                    <li>Cloud LoadBalancer</li>
-                    <li>Eureka Discovery Client</li>
-                    <li>Gateway</li>
-                    <li>Spring Boot Actuator</li>
-                    <li>OpenFeign</li>
-                    <li>Lombok</li>
-                    <li>Spring Boot DevTools</li>
+                    <li>OAuth2 Client</li>
+                    <li>Distributed Tracing</li>
+                    <li>Zipkin</li>
                 </ol>
         </ol>
     <li>Configurção para projeto de micro serviço clients</li>
@@ -83,6 +75,8 @@ Versão Java: 11
                     <li>OpenFeign</li>
                     <li>Spring Data JPA -- Opcional</li>
                     <li>Spring Boot DevTools</li>
+                    <li>Distributed Tracing</li>
+                    <li>Zipkin</li>
                 </ol>
         </ol>
 </ol>
